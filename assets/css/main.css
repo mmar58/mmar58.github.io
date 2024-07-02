@@ -156,6 +156,9 @@
     border-radius: 20px;
     font-size: 0.9em;
   }
+  .skill:hover{
+    background-color: var(--hover-color);
+  }
   .animated-text {
     display: inline-block;
     overflow: hidden;
