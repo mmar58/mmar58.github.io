@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#typing-text {
+  white-space: nowrap;
+  overflow: hidden; /* Hide the text that is not typed yet */
+  border-right: 0.15em solid orange; /* Add the cursor */
+}
+
+.typed-text {
+  animation: typing 2s steps(40, end); /* Animation for the typed text */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Adjusted cursor blinking animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+</style>
+</head>
+<body>
+
+<p id="typing-text"></p>
+
+<script>
+const text = "This is a typing effect example.";
+const typingText = document.getElementById("typing-text");
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    let char = text.charAt(i);
+    let span = document.createElement('span');
+    span.textContent = char;
+    span.classList.add('typed-text');
+    typingText.appendChild(span);
+    i++;
+
+    /* Adjust the cursor blink timing */
+    if (i === text.length) {
+      typingText.style.animation = "none"; // Stop blinking after typing is done
+    } else {
+      typingText.style.animation = "blink-caret 0.75s step-end infinite"; // Start blinking during typing
+    }
+
+    setTimeout(typeWriter, 100); // Adjust typing speed
+  }
+}
+
+typeWriter(); 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+<html><head>
+<title>MMAR - Unity And Web Dev</title>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <button id="theme-toggle">Toggle Theme</button>
+  
+  <div class="floating-menu">
+    <ul>
+      <li><a href="#" onclick="loadProfile('unity')">Unity Developer</a></li>
+      <li><a href="#" onclick="loadProfile('web')">Web Developer</a></li>
+      <li><a href="#" onclick="loadProfile('github')">GitHub Projects</a></li>
+      <li><a href="#" onclick="loadProfile('experience')">Work Experience</a></li>
+    </ul>
+  </div>
+
+  <div class="container" id="content">
+    <!-- Content will be dynamically loaded here -->
+     <!-- Unity Developer Profile -->
+     <div class="profile-header">
+      <img src="https://websim.ai/assets/unity-dev-avatar.png" alt="Profile picture" class="profile-pic">
+      <div class="profile-info">
+        <h1>Malik Md Apu Rahman</h1>
+        <div class="username">mmar58</div>
+        <div class="bio animated-text">Passionate Unity developer crafting immersive experiences.</div>
+        <div class="badges">
+          <span class="badge">Unity Certified</span>
+          <span class="badge">XR Innovator</span>
+          <span class="badge">GameJam Champion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">27</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1.2M</div>
+        <div class="stat-label">Downloads</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4.8</div>
+        <div class="stat-label">Avg. Rating</div>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <span class="skill">Unity3D</span>
+        <span class="skill">C#</span>
+        <span class="skill">3D Modeling</span>
+        <span class="skill">AR/VR Development</span>
+        <span class="skill">Shader Programming</span>
+        <span class="skill">Game Design</span>
+        <span class="skill">Performance Optimization</span>
+        <span class="skill">Unity UI</span>
+        <span class="skill">Version Control (Git)</span>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <img src="https://websim.ai/assets/cosmic-explorer-thumb.jpg" alt="Cosmic Explorer" class="project-image">
+          <div class="project-info">
+            <div class="project-title">Cosmic Explorer</div>
+            <div class="project-description">A VR space exploration game with realistic physics and stunning visuals.</div>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://websim.ai/assets/ar-city-builder-thumb.jpg" alt="AR City Builder" class="project-image">
+          <div class="project-info">
+            <div class="project-title">AR City Builder</div>
+            <div class="project-description">An augmented reality app for urban planning and architectural visualization.</div>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://websim.ai/assets/puzzle-dimensions-thumb.jpg" alt="Puzzle Dimensions" class="project-image">
+          <div class="project-info">
+            <div class="project-title">Puzzle Dimensions</div>
+            <div class="project-description">A mind-bending 4D puzzle game that challenges spatial reasoning.</div>
+          </div>
+        </div>
+        <div class="project-item">
+          <img src="https://websim.ai/assets/eco-sim-thumb.jpg" alt="EcoSim" class="project-image">
+          <div class="project-info">
+            <div class="project-title">EcoSim</div>
+            <div class="project-description">An educational simulation game about managing ecosystems and environmental impact.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End - Unity Developer Profile -->
+  </div>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      themeToggle.textContent = isDarkTheme ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+      
+      // Save theme preference
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    });
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      themeToggle.textContent = 'Switch to Light Theme';
+    } else {
+      themeToggle.textContent = 'Switch to Dark Theme';
+    }
+    function loadProfile(type) {}
+    // Function to load different profiles
+    function loadProfile2(type) {
+      const content = document.getElementById('content');
+      
+      switch(type) {
+        case 'unity':
+          content.innerHTML = `
+            <div class="profile-header">
+              <img src="https://websim.ai/assets/unity-dev-avatar.png" alt="Profile picture" class="profile-pic">
+              <div class="profile-info">
+                <h1>Alex GameDev</h1>
+                <div class="username">@unity_wizard</div>
+                <div class="bio animated-text">Passionate Unity developer crafting immersive experiences.</div>
+                <div class="badges">
+                  <span class="badge">Unity Certified</span>
+                  <span class="badge">XR Innovator</span>
+                  <span class="badge">GameJam Champion</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value">27</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">1.2M</div>
+                <div class="stat-label">Downloads</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">Avg. Rating</div>
+              </div>
+            </div>
+
+            <div class="skills">
+              <h2>Skills</h2>
+              <div class="skill-list">
+                <span class="skill">Unity3D</span>
+                <span class="skill">C#</span>
+                <span class="skill">3D Modeling</span>
+                <span class="skill">AR/VR Development</span>
+                <span class="skill">Shader Programming</span>
+                <span class="skill">Game Design</span>
+                <span class="skill">Performance Optimization</span>
+                <span class="skill">Unity UI</span>
+                <span class="skill">Version Control (Git)</span>
+              </div>
+            </div>
+
+            <div class="projects">
+              <h2>Featured Projects</h2>
+              <div class="project-grid">
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/cosmic-explorer-thumb.jpg" alt="Cosmic Explorer" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Cosmic Explorer</div>
+                    <div class="project-description">A VR space exploration game with realistic physics and stunning visuals.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/ar-city-builder-thumb.jpg" alt="AR City Builder" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">AR City Builder</div>
+                    <div class="project-description">An augmented reality app for urban planning and architectural visualization.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/puzzle-dimensions-thumb.jpg" alt="Puzzle Dimensions" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Puzzle Dimensions</div>
+                    <div class="project-description">A mind-bending 4D puzzle game that challenges spatial reasoning.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/eco-sim-thumb.jpg" alt="EcoSim" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">EcoSim</div>
+                    <div class="project-description">An educational simulation game about managing ecosystems and environmental impact.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+        case 'web':
+          content.innerHTML = `
+            <div class="profile-header">
+              <img src="https://websim.ai/assets/web-dev-avatar.png" alt="Web Developer Profile picture" class="profile-pic">
+              <div class="profile-info">
+                <h1>Alex WebDev</h1>
+                <div class="username">@web_wizard</div>
+                <div class="bio animated-text">Crafting beautiful and responsive web experiences.</div>
+                <div class="badges">
+                  <span class="badge">Full Stack</span>
+                  <span class="badge">UI/UX Expert</span>
+                  <span class="badge">Performance Guru</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Websites</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">99%</div>
+                <div class="stat-label">Client Satisfaction</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+
+            <div class="skills">
+              <h2>Skills</h2>
+              <div class="skill-list">
+                <span class="skill">HTML5</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">React</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">MongoDB</span>
+                <span class="skill">Responsive Design</span>
+                <span class="skill">SEO</span>
+                <span class="skill">Web Performance</span>
+              </div>
+            </div>
+
+            <div class="projects">
+              <h2>Featured Projects</h2>
+              <div class="project-grid">
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/e-commerce-platform.jpg" alt="E-commerce Platform" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">E-commerce Platform</div>
+                    <div class="project-description">A fully responsive e-commerce site with seamless checkout process.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/social-media-dashboard.jpg" alt="Social Media Dashboard" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Social Media Dashboard</div>
+                    <div class="project-description">A real-time analytics dashboard for social media management.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/portfolio-showcase.jpg" alt="Portfolio Showcase" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Portfolio Showcase</div>
+                    <div class="project-description">An interactive portfolio site with 3D elements and smooth animations.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/progressive-web-app.jpg" alt="Progressive Web App" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Progressive Web App</div>
+                    <div class="project-description">A high-performance PWA with offline capabilities and push notifications.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+        case 'github':
+          content.innerHTML = `
+            <div class="profile-header">
+              <img src="https://websim.ai/assets/github-avatar.png" alt="GitHub Profile picture" class="profile-pic">
+              <div class="profile-info">
+                <h1>Alex OpenSource</h1>
+                <div class="username">@code_contributor</div>
+                <div class="bio animated-text">Passionate about open source and collaborative coding.</div>
+                <div class="badges">
+                  <span class="badge">Open Source</span>
+                  <span class="badge">Top Contributor</span>
+                  <span class="badge">Hackathon Winner</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Contributions</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">20</div>
+                <div class="stat-label">Repositories</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">1000+</div>
+                <div class="stat-label">Stars</div>
+              </div>
+            </div>
+
+            <div class="projects">
+              <h2>Featured Repositories</h2>
+              <div class="project-grid">
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/ai-chatbot.jpg" alt="AI Chatbot" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">AI Chatbot</div>
+                    <div class="project-description">An open-source AI-powered chatbot with natural language processing capabilities.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/data-visualization-lib.jpg" alt="Data Visualization Library" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Data Visualization Library</div>
+                    <div class="project-description">A powerful library for creating interactive and responsive data visualizations.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/blockchain-explorer.jpg" alt="Blockchain Explorer" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Blockchain Explorer</div>
+                    <div class="project-description">An open-source blockchain explorer with real-time transaction tracking.</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/iot-platform.jpg" alt="IoT Platform" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">IoT Platform</div>
+                    <div class="project-description">A scalable IoT platform for connecting and managing smart devices.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+        case 'experience':
+          content.innerHTML = `
+            <div class="profile-header">
+              <img src="https://websim.ai/assets/professional-avatar.png" alt="Professional Profile picture" class="profile-pic">
+              <div class="profile-info">
+                <h1>Alex Tech</h1>
+                <div class="username">@tech_innovator</div>
+                <div class="bio animated-text">Versatile technologist with a passion for innovation and problem-solving.</div>
+                <div class="badges">
+                  <span class="badge">Tech Lead</span>
+                  <span class="badge">Innovator</span>
+                  <span class="badge">Mentor</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Companies</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">20+</div>
+                <div class="stat-label">Projects Led</div>
+              </div>
+            </div>
+
+            <div class="projects">
+              <h2>Work Experience</h2>
+              <div class="project-grid">
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/tech-giant-logo.jpg" alt="Tech Giant Logo" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Senior Software Engineer at Tech Giant</div>
+                    <div class="project-description">Led development of AI-powered recommendation systems. 2018-Present</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/startup-logo.jpg" alt="Startup Logo" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">CTO at Innovative Startup</div>
+                    <div class="project-description">Oversaw technical strategy and product development. 2015-2018</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/finance-corp-logo.jpg" alt="Finance Corporation Logo" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Full Stack Developer at Finance Corp</div>
+                    <div class="project-description">Developed secure financial management systems. 2012-2015</div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <img src="https://websim.ai/assets/freelance-projects.jpg" alt="Freelance Projects" class="project-image">
+                  <div class="project-info">
+                    <div class="project-title">Freelance Technology Consultant</div>
+                    <div class="project-description">Provided expert advice and development services to various clients. 2010-2012</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          break;
+      }
+
+      // Reapply animations for the new content
+      const bioElement = document.querySelector('.bio');
+      if (bioElement) {
+        bioElement.classList.remove('animated-text');
+        void bioElement.offsetWidth; // Trigger reflow
+        bioElement.classList.add('animated-text');
+      }
+    }
+
+    // Load Unity Developer profile by default
+    loadProfile('unity');
+
+    // Animation loop for the bio text
+    function animateBio() {
+      const bioElement = document.querySelector('.bio');
+      if (bioElement) {
+        const bioTexts = [
+          
+          "Pushing the boundaries of interactive gameplay.",
+          "Always exploring new technologies and innovations.",
+          "Turning ideas into reality through code.",
+          "Passionate developer crafting immersive experiences."
+        ];
+        let currentBioIndex = 0;
+        
+        setInterval(() => {
+          bioElement.textContent = '';
+          bioElement.classList.remove('animated-text');
+          void bioElement.offsetWidth; // Trigger reflow
+          bioElement.textContent = bioTexts[currentBioIndex];
+          bioElement.classList.add('animated-text');
+          
+          currentBioIndex = (currentBioIndex + 1) % bioTexts.length;
+        }, 5000);
+      }
+    }
+
+    // Start bio animation
+    animateBio();
+  </script>
+</body></html>

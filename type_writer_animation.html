@@ -1,0 +1,97 @@
+<html><head><base href="https://websim.ai"><title>WebSim.ai - Dynamic Typewriter</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  margin: 0;
+}
+
+.typewriter-container {
+  text-align: center;
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid #d4d4d4;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #d4d4d4 }
+}
+</style></head><body>
+<div class="typewriter-container">
+  <h1>WebSim.ai</h1>
+  <div id="dynamic-text" class="typewriter"></div>
+</div>
+
+<script>
+const phrases = [
+  "great unity developer",
+  "He is unique one",
+  "Creating virtual worlds",
+  "Coding dreams into reality",
+  "Pushing the boundaries of game development"
+];
+
+let currentPhraseIndex = 0;
+
+function typePhrase(phrase, element, callback) {
+  let i = 0;
+  element.textContent = '';
+
+  function type() {
+    if (i < phrase.length) {
+      element.textContent += phrase.charAt(i);
+      i++;
+      setTimeout(type, 100);
+    } else {
+      setTimeout(callback, 2000);
+    }
+  }
+
+  type();
+}
+
+function erasePhrase(element, callback) {
+  let text = element.textContent;
+  let i = text.length;
+
+  function erase() {
+    if (i > 0) {
+      element.textContent = text.slice(0, i - 1);
+      i--;
+      setTimeout(erase, 50);
+    } else {
+      setTimeout(callback, 500);
+    }
+  }
+
+  erase();
+}
+
+function cyclePhrases() {
+  const textElement = document.getElementById('dynamic-text');
+  
+  typePhrase(phrases[currentPhraseIndex], textElement, () => {
+    erasePhrase(textElement, () => {
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+      cyclePhrases();
+    });
+  });
+}
+
+cyclePhrases();
+</script>
+</body></html>
