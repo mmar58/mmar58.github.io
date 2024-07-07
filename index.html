@@ -1,6 +1,7 @@
 <html><head>
 <title>MMAR - Unity And Web Dev</title>
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/animation/text/TypeWriterAnimation/typeWriterAnimation.css">
 </head>
 <body>
   <button id="theme-toggle">Toggle Theme</button>
@@ -22,7 +23,7 @@
       <div class="profile-info">
         <h1>Malik Md Apu Rahman</h1>
         <div class="username">mmar58</div>
-        <div class="bio animated-text">Passionate Unity developer crafting immersive experiences.</div>
+        <div id="dynamic-text" class="bio typewriter">Passionate Unity developer crafting immersive experiences.</div>
         <div class="badges">
           <span class="badge">2 Year + Exp</span>
           <!-- <span class="badge">XR Innovator</span> -->
@@ -439,32 +440,33 @@
     loadProfile('unity');
 
     // Animation loop for the bio text
-    function animateBio() {
-      const bioElement = document.querySelector('.bio');
-      if (bioElement) {
-        const bioTexts = [
+    // function animateBio() {
+    //   const bioElement = document.querySelector('.bio');
+    //   if (bioElement) {
+    //     const bioTexts = [
           
-          "Pushing the boundaries of interactive gameplay.",
-          "Always exploring new technologies and innovations.",
-          "Turning ideas into reality through code.",
-          "Passionate developer crafting immersive experiences."
-        ];
-        let currentBioIndex = 0;
+    //       "Pushing the boundaries of interactive gameplay.",
+    //       "Always exploring new technologies and innovations.",
+    //       "Turning ideas into reality through code.",
+    //       "Passionate developer crafting immersive experiences."
+    //     ];
+    //     let currentBioIndex = 0;
         
-        setInterval(() => {
-          bioElement.textContent = '';
-          bioElement.classList.remove('animated-text');
-          void bioElement.offsetWidth; // Trigger reflow
-          bioElement.textContent = bioTexts[currentBioIndex];
-          bioElement.classList.add('animated-text');
+    //     setInterval(() => {
+    //       bioElement.textContent = '';
+    //       bioElement.classList.remove('animated-text');
+    //       void bioElement.offsetWidth; // Trigger reflow
+    //       bioElement.textContent = bioTexts[currentBioIndex];
+    //       bioElement.classList.add('animated-text');
           
-          currentBioIndex = (currentBioIndex + 1) % bioTexts.length;
-        }, 5000);
-      }
-    }
+    //       currentBioIndex = (currentBioIndex + 1) % bioTexts.length;
+    //     }, 5000);
+    //   }
+    // }
 
-    // Start bio animation
-    animateBio();
+    // // Start bio animation
+    // animateBio();
   </script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/animation/text/TypeWriterAnimation/typeWriterAnimation.js"></script>
 </body></html>
